@@ -1,3 +1,5 @@
+import subprocess
+
 def lambda_handler(event, context):
     command = event['command']
     out = subprocess.check_output(
