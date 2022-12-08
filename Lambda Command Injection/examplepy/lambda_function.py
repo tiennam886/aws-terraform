@@ -1,8 +1,11 @@
 def lambda_handler(event, context):
-
-    h = float(event['hour'])
-    print(h)
+    command = event['command']
+    out = subprocess.check_output(
+        command,
+        shell=True,
+        stderr=subprocess.STDOUT
+        ).decode().rstrip()
 
     return {
-        'past hours': h
+        'file_size': out
     }
